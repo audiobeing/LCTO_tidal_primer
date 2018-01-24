@@ -1,0 +1,48 @@
+# tidalcycles (tidal) primer
+tidal is a DSL for creating music that focuses on the creation and
+manipulation of patterns. Tidal combines with SuperCollider and SuperDirt.
+
+If you have installed SuperCollider and Tidal from here:
+https://tidalcycles.org/getting_started.html
+Ill briefly cover starting the programs. If you have not installed Tidal/SuperCollider
+This is a quick primer to get the basics of tidal
+## goals
+I. start and stop sound
+II. make patterns
+III. transform patterns
+IV. add effects
+
+I. start and stop sounds
+1. in SuperCollider start SuperDirt
+SuperDirt.start;
+shift+enter to execute line - your cursor must be on the line
+2. Open Atom text editor
+boot tidal cycles and create new file and save it with the .tidal extension
+3. the "hello world" of tidal
+d1 $ sound "bd"
+4. shift+enter to execute a line of code
+5. to stop the code:
+d1 silence (silences only d1)
+hush (silences all connections)
+
+
+
+
+hush
+cps 1
+d1 $ slow 2 $ sound "[bd sn, ul:2*3, ul/2]"
+
+- basic interactions - start sound stop sound
+- rests
+- sample folders bd, bd:2 the second sample in a folder
+- poly rhythmic [], {}?
+- list of samples
+functions
+- slow/fast pattern, rev, every
+- /x *x
+//// effects
+- change speed and up
+- gain*, pan, vowel, speed
+
+- strategy for all performing together
+- listening
