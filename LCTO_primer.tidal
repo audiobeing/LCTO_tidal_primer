@@ -1,4 +1,4 @@
-# tidalcycles (tidal) primer
+-- tidalcycles (tidal) primer
 tidal is a DSL for creating music that focuses on the creation and
 manipulation of patterns. Tidal combines with SuperCollider and SuperDirt.
 
@@ -6,24 +6,82 @@ If you have installed SuperCollider and Tidal from here:
 https://tidalcycles.org/getting_started.html
 Ill briefly cover starting the programs. If you have not installed Tidal/SuperCollider
 This is a quick primer to get the basics of tidal
-## goals
+
+-- GOALS
 I. start and stop sound
 II. make patterns
 III. transform patterns
 IV. add effects
 
-I. start and stop sounds
+-- I. start and stop sounds
 1. in SuperCollider start SuperDirt
+
 SuperDirt.start;
+
 shift+enter to execute line - your cursor must be on the line
+
 2. Open Atom text editor
 boot tidal cycles and create new file and save it with the .tidal extension
 3. the "hello world" of tidal
+
 d1 $ sound "bd"
+
 4. shift+enter to execute a line of code
 5. to stop the code:
-d1 silence (silences only d1)
-hush (silences all connections)
+
+d1 silence
+
+(silences only d1)
+
+hush
+
+(silences all connections)
+
+II. Make patterns
+
+d1 $ sound "bd sn"
+-- tidal is based on a cycle - adding more samples divides this cycle
+d1 $ sound "bd bd bd bd"
+-- 4 samples equally dividing the duration of the loop - 1/4 per sample
+d1 $ sound "bd ~ bd bd"
+-- tilda ~ is used for creating a rest/silence
+d1 $ sound "[bd , sn, hh, numbers]"
+-- use square brackets [...] with commas , to play samples simultaneously
+d1 $ sound "[bd bd bd bd, hh hh hh]"
+-- polyrhythm
+d1 $ sound "[bd [sn sn], numbers [hh hh hh]]"
+-- using the square brackets to subdivide a beat
+d1 $ sound "[bd/2 [sn sn], [numbers*3] [hh hh hh]]"
+-- what are the /2 and *3 doing?
+
+d1 $ sound "bd bd:1 bd:2 bd:3"
+-- choose different samples from folder - bd is a folder bd is the same of bd:0
+
+d1 $ n "0 2 7 4" # sound "ul"
+-- notice the # - more on this later
+-- n allows for us to choose the sample number from the folder ul (in this case)
+
+III. transform patterns
+
+d1 $ sound "[bd sn:2, hh*3 hh:3*2]"
+d1 $ slow 2 $ sound "[bd sn:2, hh*3 hh:3*2]"
+d1 $ fast 2 $ sound "[bd sn:2, hh hh:2*2]"
+d1 $ every 4 (fast 2) $ sound "bd [~ sn]"
+
+
+IV. adding effects (gain, pan, vowel, speed )
+d1 $ sound "[bd sn:2, hh*3 hh:3*2]" # gain "0.8 "
+d1 $ sound "[bd sn:2, hh*3 hh:3*2]" # gain "0.8 0.5 0.42 1"
+d1 $ sound "[bd sn:2, hh*3 hh:3*2]" # pan "0 0.25 0.75 1"
+-- pan is between 0 and 1
+d1 $ sound "[bd sn:2, hh*3 hh:3*2]" # vowel "a e i o u"
+d1 $ sound "[bd sn:2, hh*3 hh:3*2]" # speed "2 0.25 0.75 1"
+
+-- try combining all of the above
+
+
+d1 silence
+
 
 
 
