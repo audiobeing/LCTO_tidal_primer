@@ -79,7 +79,10 @@ d1 $ sound "[bd sn:2, hh*3 hh:3*2]" # vowel "a e i o u"
 d1 $ sound "[bd sn:2, hh*3 hh:3*2]" # speed "2 0.25 0.75 1"
 
 -- try combining all of the above
+-- try to create textures -
 
+d1 $ every 6 (fast 24) $ slow 4 $ sound "[co:4, ul:2 ul ul:1]" # speed "[0.02,0.1]"
+|+| vowel "a e"
 
 d1 silence
 
@@ -94,3 +97,9 @@ d1 silence
 
 
 V. collaboration strategies
+0. free improv
+1. each performer take a particular beat seqmentation
+2. each performer choose a particular sound
+3. position each performer in unique place in the sound field
+4. start sparse and gradual get more dense - then back to sparse to silence. 
+5. roulette
